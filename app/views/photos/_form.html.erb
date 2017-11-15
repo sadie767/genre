@@ -1,0 +1,7 @@
+<%= render "layouts/errors", :object => @photo %>
+
+<%= form_for @photo do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit %>
+<% end %>

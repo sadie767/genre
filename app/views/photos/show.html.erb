@@ -1,3 +1,6 @@
 <h1><img src="<%= @photo.url %>"></h1>
-
+<p><%= link_to "Edit", edit_photo_path(@photo) %></p>
+<p><%= link_to "Delete", photo_path(@photo),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
 <p><%= link_to "Return Home", photos_path %></p>
