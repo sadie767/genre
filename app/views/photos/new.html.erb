@@ -1,0 +1,17 @@
+<h1>New Photos</h1>
+
+<% if @photo.errors.any? %>
+  <h3>Oops, there were some errors.  Please try again.</h3>
+  <ul>
+    <% @photo.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @photo do |p| %>
+  <%= p.label :url %>
+  <%= p.text_field :url %>
+  <%= p.submit %>
+<% end %>
