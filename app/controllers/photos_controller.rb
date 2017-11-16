@@ -33,6 +33,16 @@ class PhotosController < ApplicationController
     end
   end
 
+  def create
+    @photo = Photo.new
+    if @photo.save
+      flash[:notice] = "Photo successfully added!"
+      redirect_to photo_path(@photo)
+    else
+      render :new
+    end
+  end
+
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy

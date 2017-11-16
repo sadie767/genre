@@ -15,5 +15,9 @@
  */
 img {
   width: auto;
-  height: 400px;
+  height: 300px;
+}
+
+body {
+  background: url("http://creativity103.com/collections/Smoke/smoke_misty_backdrop.jpg");
 }

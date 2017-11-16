@@ -1,0 +1,17 @@
+require 'rails_helper'
+
+describe "the add a photo process" do
+  it "adds a new photo" do
+    visit photos_path
+    click_link 'New Photo'
+    fill_in 'Url', :with => 'http://viola.bz/wp-content/uploads/2012/08/Paintings-by-Vladimir-Ryabchikov-1-500x648.jpg'
+    click_on 'Create Photo'
+    expect(page).to have_content 'Photos'
+  end
+
+  it "gives error when no name is entered" do
+    visit new_photo_path
+    click_on 'Create Photo'
+    expect(page).to have_content 'errors'
+  end
+end
