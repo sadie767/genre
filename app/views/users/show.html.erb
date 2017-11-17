@@ -1,0 +1,28 @@
+<%= render "photos/navbar" %>
+<br><br>
+<%= @user.email %>
+
+<% if @user.photos.any? %>
+  <ul>
+    <% @user.photos.each do |photo| %>
+    <li>
+      <img src="<%= photo.url %>">
+      <br>
+      <%= link_to photo.title %>
+      <br>
+      <%= link_to "Edit", edit_user_path(@user) %>
+      <br>
+      <%= link_to "Delete", user_path(@user),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %>
+    </li>
+  </ul>
+  <% end %>
+  <% else %>
+    <p>There are no photos for this user</p>
+  <% end %>
+  <p><%= link_to "Add a photo", new_user_photo_path(@user) %></p>
+<p><%= link_to "Edit user", edit_user_path(@user) %></p>
+<p><%= link_to "Delete user", user_path(@user),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
