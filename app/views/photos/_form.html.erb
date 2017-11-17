@@ -1,6 +1,6 @@
-<%= render "layouts/errors", :object => @photo %>
 
-<%= form_for @photo do |f| %>
+
+<%= form_for [@user, @photo] do |f| %>
   <%= f.label :url %>
   <br>
   <%= f.text_field :url %>
@@ -13,5 +13,5 @@
   <br>
   <%= f.text_area :description, size: "40x5" %>
   <br><br>
-  <%= f.submit %>
+  <p><%= f.submit %></p>
 <% end %>
